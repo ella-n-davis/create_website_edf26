@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Academic Portfolio</title>
+    <title>Ella Davis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -24,291 +25,258 @@
             padding: 2rem;
         }
 
-        .project-card {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 2rem;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-            border: 1px solid #e9ecef;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .project-title {
+        .name-title {
             font-size: 1.5rem;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
             color: #2196F3;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .interests {
+            color: #666;
             margin-bottom: 1rem;
         }
 
-        .project-description {
-            margin-bottom: 1.5rem;
-        }
-
-        .key-features {
-            margin-bottom: 1.5rem;
-        }
-
-        .key-features h4 {
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .key-features ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .key-features li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .key-features li::before {
-            content: "•";
-            color: #2196F3;
-            position: absolute;
-            left: 0;
-        }
-
-        .skills-section {
-            margin-top: 1.5rem;
-        }
-
-        .skills-grid {
+        .social-links {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 0.5rem;
-            margin-top: 0.5rem;
         }
 
-        .skill-tag {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        h2 {
-            font-size: 2rem;
+        .social-link {
+            text-decoration: none;
             color: #333;
-            margin-bottom: 2rem;
-        }
-
-        .project-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
+            padding: 0.7rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .social-link i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .ttu-logo {
+            width: 16px; /* Smaller logo size */
+            height: 16px;
+            margin-right: 0.5rem;
+        }
+
+        /* Colorful icons */
+        .social-link.linkedin i {
+            color: #0077b5;
+        }
+
+        .social-link.github i {
+            color: #333;
+        }
+
+        .social-link.twitter i {
+            color: #1DA1F2;
+        }
+
+        .social-link.email i {
+            color: #EA4335;
+        }
+
+        .social-link.university i {
+            color: #cc0000;
+        }
+
+        .social-link.location i {
+            color: #34a853;
+        }
+
+        /* Hover effects */
+        .social-link:hover {
+            transform: translateX(5px);
+            background-color: #f8f9fa;
+        }
+
+        .social-link.linkedin:hover {
+            background-color: #e6f3f9;
+        }
+
+        .social-link.github:hover {
+            background-color: #f6f8fa;
+        }
+
+        .social-link.twitter:hover {
+            background-color: #e8f5fd;
+        }
+
+        .social-link.email:hover {
+            background-color: #fef2f2;
+        }
+
+        .social-link.university:hover {
+            background-color: #fff5f5;
+        }
+
+        .social-link.location:hover {
+            background-color: #f2f8f4;
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .highlight-link {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .highlight-link:hover {
+            text-decoration: underline;
+            color: #1976D2;
+        }
+
+        .content-block p {
             margin-bottom: 1rem;
-        }
-
-        .project-title-group {
-            flex-grow: 1;
-        }
-
-        .project-timeline {
-            font-size: 0.9rem;
-            color: #1976d2;
-            background: #e3f2fd;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-weight: 500;
-            white-space: nowrap;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            .profile-section {
+                grid-template-columns: 1fr;
             }
 
-            .project-card {
-                padding: 1.5rem;
+            .profile-sidebar {
+                align-items: center;
+                text-align: center;
             }
 
-            .project-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
+            .nav-links {
+                display: none;
+            }
+
+            .social-link {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Projects</h2>
-        
-        <!-- Study Group Finder App -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title-group">
-                    <h3 class="project-title">Study Group Finder App</h3>
-                </div>
-                <span class="project-timeline">Jan 2024 - Present</span>
+        <nav>
+            <a href="index.html" class="name-title">Ella Davis</a>
+            <div class="nav-links">
+                <a href="cv.html">Resume</a>
+                <a href="index.html">Home</a>
             </div>
-            <div class="project-description">
-                <p>A comprehensive platform designed to help students find study partners for specific subjects, facilitating collaborative learning and academic success.</p>
-            </div>
-            <div class="key-features">
-                <h4>Key Features</h4>
-                <ul>
-                    <li>User Profiles with academic major and course details</li>
-                    <li>Course Management system</li>
-                    <li>User Preferences matching</li>
-                    <li>Advanced Matching System based on compatibility</li>
-                </ul>
-            </div>
-            <div class="skills-section">
-                <h4>Technologies & Skills</h4>
-                <div class="skills-grid">
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">User Authentication</span>
-                    <span class="skill-tag">RESTful APIs</span>
-                    <span class="skill-tag">Matching Algorithms</span>
-                    <span class="skill-tag">UI/UX Design</span>
-                </div>
-            </div>
-        </div>
+        </nav>
 
-        <!-- Grading Platform -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title-group">
-                    <h3 class="project-title">Grading Platform</h3>
-                </div>
-                <span class="project-timeline">Sep 2023 - Dec 2023</span>
-            </div>
-            <div class="project-description">
-                <p>A comprehensive grading platform that streamlines the grading process for instructors and provides clear grade visibility for students.</p>
-            </div>
-            <div class="key-features">
-                <h4>Key Features</h4>
-                <ul>
-                    <li>Instructor Dashboard with course management</li>
-                    <li>Student Portal with progress tracking</li>
-                    <li>Automated Grade Calculation</li>
-                    <li>Integrated Feedback System</li>
-                </ul>
-            </div>
-            <div class="skills-section">
-                <h4>Technologies & Skills</h4>
-                <div class="skills-grid">
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">Data Visualization</span>
-                    <span class="skill-tag">Authentication</span>
-                    <span class="skill-tag">Real-time Updates</span>
-                    <span class="skill-tag">Dashboard Design</span>
+        <div class="profile-section">
+            <div class="profile-sidebar">
+                <img src="images/profile.jpg" alt="Profile Picture" class="profile-image">
+                <h1>Ella Davis</h1>
+                <p class="interests">Interests in Software Development, Outdoors.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Lubbock, Texas, United States
+                    </a>
+                    <a href="https://www.ttu.edu" class="social-link university" target="_blank">
+                        <img src="images/logo.png" alt="TTU Logo" class="ttu-logo">
+                        Texas Tech University
+                    </a>
+                    <a href="mailto:elladavi@ttu.edu" class="social-link email">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </a>
+                    <a href="https://github.com/ella-n-davis" class="social-link github" target="_blank">
+                        <i class="fab fa-github"></i>
+                        Github
+                    </a>
+                    <a href="https://www.linkedin.com/in/ella-n-davis" class="social-link linkedin" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    
                 </div>
             </div>
-        </div>
 
-        <!-- Campus Navigation System -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title-group">
-                    <h3 class="project-title">Campus Navigation System</h3>
-                </div>
-                <span class="project-timeline">May 2023 - Aug 2023</span>
-            </div>
-            <div class="project-description">
-                <p>A user-friendly navigation system specifically designed for TTU campus, helping students locate essential services and navigate efficiently.</p>
-            </div>
-            <div class="key-features">
-                <h4>Key Features</h4>
-                <ul>
-                    <li>Interactive Campus Map with multiple views</li>
-                    <li>Service Locator with detailed information</li>
-                    <li>Categorized Service Directory</li>
-                </ul>
-            </div>
-            <div class="skills-section">
-                <h4>Technologies & Skills</h4>
-                <div class="skills-grid">
-                    <span class="skill-tag">Google Maps API</span>
-                    <span class="skill-tag">React Native</span>
-                    <span class="skill-tag">Geolocation</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">Mobile Development</span>
-                    <span class="skill-tag">Location Services</span>
-                    <span class="skill-tag">Maps Integration</span>
-                </div>
-            </div>
-        </div>
+            <div class="main-content">
 
-        <!-- Mental Health Support App -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title-group">
-                    <h3 class="project-title">Mental Health Support App</h3>
+                <h2>Projects</h2>
+                <div class="content-block">
+                <p>Here you will find a list of my favorite projects that I've worked on. These are also listed on my Linkedin with more information.</p>
+                <small><i>Website last updated 9/9/2026</i></small></div>
+                <div class="content-block">
+                    <h3>HackWesTX 2025: Love Me Not</h3>
+                    <p>Contributed to data and file handling logic for a website that parses Discord message data and returns statistics about how likely a user is to have a crush on you. Additionally contributed to visuals and algorithm design. My team designed and built the project with C#, HTML, and CSS using the Blazor framework for .NET development.</p>
                 </div>
-                <span class="project-timeline">Jan 2023 - Apr 2023</span>
-            </div>
-            <div class="project-description">
-                <p>A centralized platform providing mental health resources and support services for TTU students, making it easier to access appropriate help.</p>
-            </div>
-            <div class="key-features">
-                <h4>Key Features</h4>
-                <ul>
-                    <li>Comprehensive Resource Directory</li>
-                    <li>Appointment Scheduler</li>
-                    <li>Wellness Routine Tracker</li>
-                </ul>
-            </div>
-            <div class="skills-section">
-                <h4>Technologies & Skills</h4>
-                <div class="skills-grid">
-                    <span class="skill-tag">Flutter</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">Calendar Integration</span>
-                    <span class="skill-tag">Health Data Management</span>
-                    <span class="skill-tag">Privacy & Security</span>
-                    <span class="skill-tag">API Integration</span>
-                    <span class="skill-tag">Cross-platform Development</span>
+                <div class="content-block">
+                    <h3>Get Phit 2025 Research Project: Texas Suicide Rates</h3>
+                    <p>Conducted a public health research project exploring reasons for higher rates of suicide in non-Hispanic White males in Texas. Used Python to clean and organize secondary datasets. Supported my group in completing the research project and poster in under four days.</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Job Application Tracker -->
-        <div class="project-card">
-            <div class="project-header">
-                <div class="project-title-group">
-                    <h3 class="project-title">Job Application Tracker</h3>
-                </div>
-                <span class="project-timeline">Sep 2022 - Dec 2022</span>
-            </div>
-            <div class="project-description">
-                <p>A comprehensive tool for students to manage their job applications, track progress, and prepare for interviews effectively.</p>
-            </div>
-            <div class="key-features">
-                <h4>Key Features</h4>
-                <ul>
-                    <li>Application Dashboard with status tracking</li>
-                    <li>Deadline Reminder System</li>
-                    <li>Document Management</li>
-                </ul>
-            </div>
-            <div class="skills-section">
-                <h4>Technologies & Skills</h4>
-                <div class="skills-grid">
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">Cloud Storage</span>
-                    <span class="skill-tag">Notification System</span>
-                    <span class="skill-tag">Document Processing</span>
-                    <span class="skill-tag">State Management</span>
+                <div class="content-block">
+                    <h3>HackWesTX 2024: Buckles & Beatdowns</h3>
+                    <p>Collaborated with two teammates to build and host a website featuring a compatibility ranking algorithm in under 24 hours. The project was written in Java, HTML, CSS, and TypeScript using Springboot, Svelte, and MongoDB. We followed the "western" theme suggestion and created a website that matches (fictional) bounty hunters with their next (fictional) target. Unfortunately, we no longer have access to some of the services we used to host our website and database, but some parts of the website are still functional.</p>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
+
